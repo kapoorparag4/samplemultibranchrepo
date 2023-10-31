@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: $BRANCH_NAME
+    environment: ${{ github.ref_name }}
     env:
       BRANCH_NAME: ${{ github.ref_name }}
 
@@ -27,9 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a second-line script
-        run: echo Hello, ${{ secrets.SECRET1 }}    
+        run: echo this ${{ secrets.SECRET1 }}    
         
 
       # Runs a single command using the runners shell
       - name: Run a third-line script
-        run: echo Hello, ${{ vars.VAR1 }}    
+        run: echo this ${{ vars.VAR1 }}    
