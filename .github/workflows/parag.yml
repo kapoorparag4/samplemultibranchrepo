@@ -32,4 +32,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a third-line script
-        run: echo this ${{ vars.VAR1 }}    
+        run: echo this ${{ vars.VAR1 }}  
+        
+      - name : RUN mavan command showcase
+        run: echo mvn clean deploy -DmuleDeploy -DconnectedAppClientId=${{ secrets.SECRET1 }}  -DconnectedAppClientSecret=${{ secrets.SECRET1 }}  -Denvironment=${{ vars.VAR1 }} -Dworkers=1 -DworkerType=MICRO -Dmule.env=${{ vars.VAR1 }} -Danypoint.platform.client_id=${{ secrets.SECRET1 }}  -Danypoint.platform.client_secret=${{ secrets.SECRET1 }} -DapplicationName=sb-iewc-pim-sapi -Dregion=us-east-2 -s .github/settings.xml
